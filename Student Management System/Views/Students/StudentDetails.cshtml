@@ -1,0 +1,54 @@
+﻿@model             Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Student Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+    </dl>
+
+    @* <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Enrollments)
+    </dt>
+
+    <dd class="col-sm-10">
+        <table class="table">
+            <tr>
+                <th>Course Title</th>
+                <th>Grade</th>
+            </tr>
+            @foreach (var item in Model.Enrollments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+                </tr>
+            }
+        </table>
+    </dd> *@
+
+</div>
+<div>
+    <a asp-action="EditStudent" asp-route-id="@Model?.StudentID" class="btn btn-primary">Edit Student</a> 
+    <a asp-action="ViewStudents" class="btn btn-secondary ms-4">Go Back</a>
+</div>

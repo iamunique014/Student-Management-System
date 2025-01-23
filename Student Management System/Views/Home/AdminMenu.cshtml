@@ -1,0 +1,68 @@
+﻿<section class="admin-menu">
+   
+        <!-- Quick Actions -->
+        <div class="card my-4">
+            <div class="card-header bg-info text-white">Quick Actions</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 my-3">
+                        <a asp-controller="Students" asp-action="ViewStudents" class="btn btn-primary btn-block">Manage Students</a>
+                    </div>
+                <div class="col-md-4 my-3">
+                        <a asp-controller="Courses" asp-action="ViewCourses" class="btn btn-success btn-block">Manage Courses</a>
+                    </div>
+                    <div class="col-md-4 my-3">
+                        <a asp-controller="Enrollments" asp-action="ViewEnrollments" class="btn btn-warning btn-block">Manage Enrollments</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   
+
+    <!-- Dashboard Widgets -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow rounded mb-3">
+                <div class="card-header">Student Statistics</div>
+                <img src="/Images/pexels-buro-millennial-636760-1438072-students.jpg" alt="students" class="img-fluid"  />
+                
+                
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalStudents Total Students</h5>
+                    <p class="card-text">Active Students: <span class="text-success">@ViewBag.ActiveStudents</span> </p>
+                    <p class="card-text">Inactive Students: <span class="text-danger">@ViewBag.InActiveStudents</span> </p>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow rounded mb-3">
+                <div class="card-header">Course Statistics</div>
+                <img src="/Images/pexels-shvetsa-3987020-courses.jpg" alt="Course stats" class="img-fluid" />
+                
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalCourses Total Courses</h5>
+                    <p class="card-text">Most Popular: <span class="text-success">@ViewBag.MostPopularCourse</span> </p>
+                    <p class="card-text">Least Enrolled: <span class="text-danger">@ViewBag.LeastPopularCourse</span> </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow mb-3">
+                <div class="card-header">Enrollment Statistics</div>
+                <img src="/Images/pexels-pavel-danilyuk-8111811-enrollments.jpg" alt="updates" class="img-fluid" />
+                
+                <div class="card-body">
+                    <h5 class="card-title">@ViewBag.TotalEnrollments Total Enrollments</h5>
+                    <p class="card-text">Graded: <span class="text-success">@ViewBag.TotalGraded</span> </p>
+                    <p class="card-text">Pending Grades: <span class="text-danger">@ViewBag.TotalNonGraded </span> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</section>
+

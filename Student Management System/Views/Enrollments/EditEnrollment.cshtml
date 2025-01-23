@@ -1,0 +1,70 @@
+﻿
+@model             Enrollment
+
+
+@{
+    var mode = ViewBag.Mode as string ?? "Edit";
+    ViewData["Title"] = mode == "Grade" ? "Assign Grade" : "Edit Enrollment";
+}
+
+<h1>@(mode == "Grade" ? "Assign Grade" : "Edit Enrollment")</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEnrollment" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EnrollmentID" />
+            <div class="form-group mb-4">
+                <label asp-for="StudentID" class="control-label mb-3">Student</label>
+                <select asp-for="StudentID" class="form-control" readonly="true" asp-items="ViewBag.Students"></select>
+                <span asp-validation-for="StudentID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="CourseID" class="control-label mb-4">Course</label>
+                <select asp-for="CourseID" class="form-control" asp-items="ViewBag.Courses"></select>
+                <span asp-validation-for="CourseID" class="text-danger"></span>
+            </div>
+            @if (mode == "Grade")
+            {
+                <div class="form-group mb-4">
+                    <label asp-for="Grade" class="control-label mb-4"></label>
+                    <select asp-for="Grade" class="form-control" >
+                        @foreach (var grade in Enum.GetValues(typeof(Grade)))
+                        {
+                            <option value="@grade">@grade</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+            }
+
+            @if (mode == "Activate")
+            {
+                <div class="form-group mb-4">
+                    <label asp-for="Status" class="control-label mb-4"></label>
+                    <select asp-for="Status" class="form-control">
+                        @foreach (var status in Enum.GetValues(typeof(EnrollmentStatus)))
+                        {
+                            <option value="@status">@status</option>
+                        }
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+                <a asp-action="ViewEnrollments" class="btn btn-secondary ms-4">Go Back</a>
+            </div>
+            <h2>@ViewBag.Message</h2>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

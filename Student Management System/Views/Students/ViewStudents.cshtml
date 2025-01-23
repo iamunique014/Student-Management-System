@@ -1,0 +1,55 @@
+﻿
+
+@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "View Students";
+}
+
+<h1 class="text-black text-center py-4">Manage Students</h1>
+<hr />
+<div class="my-4">
+    <a asp-action="CreateStudent" class="btn btn-primary">Create New</a>
+    <a asp-controller="Home" asp-action="AdminMenu" class="btn btn-secondary ms-4">Go Back</a>
+</div>
+
+<div class="table-responsive" style="max-height: 415px; overflow-y: auto;">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark py-5" style="position: sticky; top: 0; z-index: 10;">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>Manage Student</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        <a asp-action="EditStudent" class="btn btn-primary" asp-route-id="@item.StudentID">Edit</a>
+                        <a asp-action="DeleteStudent" class="btn btn-danger" asp-route-id="@item.StudentID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

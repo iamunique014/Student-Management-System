@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="row align-items-center justify-content-between">
+    <div class="col-md-6 order-2 order-md-1 ">
+
+        <div class="jumbotron mb-2 text-muted">
+            <h1>School Of IT</h1>
+        </div>
+
+        <h2 class="mb-3">Welcome to the Enrollment Management System</h2>
+        <p>
+            Here you can manage students, courses, enrollments, and grades effortlessly. Use the navigation menu or the quick actions below to get started.
+        </p>
+        <div class="quick-actions ">
+            <a asp-controller="Home" asp-action="AdminMenu" class="btn btn-outline-primary" >Get Started</a>
+        </div>
+        
+    </div>
+
+    <div class="col-md-6 order-1 order-lg-2 mt-5">
+        <img src="/Images/hero-img.png" alt="hero image" class="img-fluid" />
+    </div>
+    
+</div>
